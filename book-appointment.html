@@ -1,1 +1,346 @@
-<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Book appointment | Utkrishti Ayurveda</title><style>body{font-family:system-ui;margin:0;display:grid;place-items:center;min-height:100vh;background:#f8f5ec;color:#173e2c}.box{max-width:620px;padding:40px;text-align:center}a{color:#173e2c;font-weight:700}</style></head><body><div class="box"><h1>Book appointment</h1><p>This page is reserved for the next development phase.</p><a href="index.html">← Back to Home</a></div></body></html>
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173e2c">
+  <meta name="robots" content="noindex,follow">
+
+  <title>Book Your Appointment | Utkrishti Ayurveda</title>
+  <meta name="description" content="Book an in-person or online Ayurvedic consultation with Utkrishti Ayurveda in Noida Extension, Greater Noida West.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/book-appointment.css">
+
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/book-appointment.js" defer></script>
+</head>
+
+<body class="booking-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-pill shell" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Utkrishti Ayurveda home">
+        <img src="assets/logo/utkrishti-ayurveda-logo.png" alt="Utkrishti Ayurveda logo" width="54" height="54">
+        <span class="brand-copy">
+          <strong>Utkrishti</strong>
+          <small>Ayurveda</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="specialities.html">Specialities</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="track-link" href="appointment-status.html">
+          <i data-lucide="search-check"></i><span>Track</span>
+        </a>
+        <a class="btn btn-primary nav-cta active-book" href="book-appointment.html" aria-current="page">
+          <i data-lucide="calendar-days"></i><span>Book Appointment</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu shell" id="mobileMenu" hidden>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="specialities.html">Specialities</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="appointment-status.html">Track Appointment</a>
+      <a class="btn btn-primary" href="book-appointment.html" aria-current="page">Book Appointment</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="booking-hero">
+      <div class="booking-orb booking-orb-one" aria-hidden="true"></div>
+      <div class="booking-orb booking-orb-two" aria-hidden="true"></div>
+
+      <div class="shell booking-heading">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Appointment Booking</div>
+        <h1>Book Your <span>Online Appointment</span></h1>
+        <p>Choose an in-person visit or online consultation and share a few details. Our team will review your request and confirm the appointment.</p>
+
+        <div class="booking-meta">
+          <span><i data-lucide="clock-3"></i><strong>Consultation Hours</strong> 08:45 AM – 10:45 AM</span>
+          <span><i data-lucide="map-pin"></i>Noida Extension, Greater Noida West</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-section">
+      <div class="shell booking-layout">
+
+        <aside class="booking-aside">
+          <div class="aside-card aside-primary">
+            <span class="aside-icon"><i data-lucide="leaf"></i></span>
+            <div class="eyebrow light">Before you book</div>
+            <h2>Simple booking. Personal care.</h2>
+            <p>Tell us how you would like to consult and what you need help with. Your information will help the clinic prepare for your visit.</p>
+
+            <div class="care-points">
+              <div>
+                <span><i data-lucide="user-round-check"></i></span>
+                <p><strong>Personal details</strong><small>Basic information for your appointment record.</small></p>
+              </div>
+              <div>
+                <span><i data-lucide="video"></i></span>
+                <p><strong>Your preferred mode</strong><small>Choose in-person or online consultation.</small></p>
+              </div>
+              <div>
+                <span><i data-lucide="calendar-check-2"></i></span>
+                <p><strong>Preferred date</strong><small>Select when you would like to consult.</small></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="aside-card timing-card">
+            <div>
+              <span class="mini-icon"><i data-lucide="clock"></i></span>
+              <div>
+                <small>Current consultation timing</small>
+                <strong>08:45 AM – 10:45 AM</strong>
+              </div>
+            </div>
+            <p>Final appointment confirmation will depend on availability for the selected date.</p>
+          </div>
+
+          <a class="status-card" href="appointment-status.html">
+            <span class="mini-icon"><i data-lucide="scan-search"></i></span>
+            <span><small>Already submitted?</small><strong>Track your appointment</strong></span>
+            <i data-lucide="arrow-up-right"></i>
+          </a>
+        </aside>
+
+        <div class="booking-form-card">
+          <div class="form-card-head">
+            <span class="form-step">Appointment Request</span>
+            <h2>Your details</h2>
+            <p>Please enter accurate contact information so the clinic can reach you regarding your appointment.</p>
+          </div>
+
+          <form id="appointmentForm" class="appointment-form" novalidate>
+            <div class="form-grid">
+              <div class="field field-full">
+                <label for="fullName">Full Name <span aria-hidden="true">*</span></label>
+                <div class="input-wrap">
+                  <i data-lucide="user-round"></i>
+                  <input type="text" id="fullName" name="full_name" autocomplete="name" placeholder="Enter patient name" required>
+                </div>
+                <small class="field-error" data-error-for="fullName"></small>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone / WhatsApp No. <span aria-hidden="true">*</span></label>
+                <div class="input-wrap phone-wrap">
+                  <span class="country-code">+91</span>
+                  <input type="tel" id="phone" name="phone" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="10-digit mobile number" required>
+                </div>
+                <small class="field-error" data-error-for="phone"></small>
+              </div>
+
+              <div class="field">
+                <label for="email">Email Address <span class="optional">(optional)</span></label>
+                <div class="input-wrap">
+                  <i data-lucide="mail"></i>
+                  <input type="email" id="email" name="email" autocomplete="email" placeholder="name@example.com">
+                </div>
+                <small class="field-error" data-error-for="email"></small>
+              </div>
+
+              <div class="field">
+                <label for="age">Age <span aria-hidden="true">*</span></label>
+                <div class="input-wrap">
+                  <i data-lucide="cake-slice"></i>
+                  <input type="number" id="age" name="age" inputmode="numeric" min="1" max="120" placeholder="Age in years" required>
+                </div>
+                <small class="field-error" data-error-for="age"></small>
+              </div>
+
+              <div class="field">
+                <label for="gender">Gender <span aria-hidden="true">*</span></label>
+                <div class="input-wrap select-wrap">
+                  <i data-lucide="users-round"></i>
+                  <select id="gender" name="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
+                  </select>
+                  <i class="select-chevron" data-lucide="chevron-down"></i>
+                </div>
+                <small class="field-error" data-error-for="gender"></small>
+              </div>
+
+              <fieldset class="field field-full mode-field">
+                <legend>How would you like to consult? <span aria-hidden="true">*</span></legend>
+
+                <div class="mode-options">
+                  <label class="mode-card">
+                    <input type="radio" name="consultation_mode" value="in_person" required>
+                    <span class="mode-check"><i data-lucide="check"></i></span>
+                    <span class="mode-icon"><i data-lucide="stethoscope"></i></span>
+                    <span class="mode-copy">
+                      <strong>In-person Consultation</strong>
+                      <small>Visit the clinic in Noida Extension</small>
+                    </span>
+                  </label>
+
+                  <label class="mode-card">
+                    <input type="radio" name="consultation_mode" value="online" required>
+                    <span class="mode-check"><i data-lucide="check"></i></span>
+                    <span class="mode-icon"><i data-lucide="video"></i></span>
+                    <span class="mode-copy">
+                      <strong>Online Consultation</strong>
+                      <small>Consult remotely from your location</small>
+                    </span>
+                  </label>
+                </div>
+                <small class="field-error" data-error-for="consultation_mode"></small>
+              </fieldset>
+
+              <div class="field field-full">
+                <label for="consultationType">Consultation Type <span aria-hidden="true">*</span></label>
+                <div class="input-wrap select-wrap">
+                  <i data-lucide="list-filter"></i>
+                  <select id="consultationType" name="consultation_type" data-source="backend" required>
+                    <option value="">Select consultation type</option>
+                  </select>
+                  <i class="select-chevron" data-lucide="chevron-down"></i>
+                </div>
+                <div class="field-note">
+                  <i data-lucide="database"></i>
+                  <span>Consultation options will be loaded from the clinic backend.</span>
+                </div>
+                <small class="field-error" data-error-for="consultationType"></small>
+              </div>
+
+              <div class="field field-full">
+                <label for="mainConcern">Main Concern <span aria-hidden="true">*</span></label>
+                <div class="input-wrap textarea-wrap">
+                  <i data-lucide="message-square-text"></i>
+                  <textarea id="mainConcern" name="main_concern" rows="5" maxlength="800" placeholder="Briefly describe the main concern or reason for consultation..." required></textarea>
+                </div>
+                <div class="char-row">
+                  <small>Please avoid sharing highly sensitive information here.</small>
+                  <small><span id="concernCount">0</span>/800</small>
+                </div>
+                <small class="field-error" data-error-for="mainConcern"></small>
+              </div>
+
+              <div class="field field-full">
+                <label for="preferredDate">Preferred Date <span aria-hidden="true">*</span></label>
+                <div class="input-wrap">
+                  <i data-lucide="calendar-days"></i>
+                  <input type="date" id="preferredDate" name="preferred_date" required>
+                </div>
+                <div class="field-note">
+                  <i data-lucide="clock-3"></i>
+                  <span>Consultation hours: 08:45 AM – 10:45 AM. Final timing will be confirmed by the clinic.</span>
+                </div>
+                <small class="field-error" data-error-for="preferredDate"></small>
+              </div>
+            </div>
+
+            <label class="consent-row">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span>I confirm that the details provided above are correct and may be used by Utkrishti Ayurveda to process and communicate about my appointment request.</span>
+            </label>
+            <small class="field-error consent-error" data-error-for="consent"></small>
+
+            <div class="form-submit-area">
+              <div class="secure-note">
+                <i data-lucide="shield-check"></i>
+                <span><strong>Your details stay private.</strong><small>Information is used for appointment handling and clinic communication.</small></span>
+              </div>
+
+              <button class="btn btn-primary submit-btn" type="submit">
+                <span>Request Appointment</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="frontend-notice" id="frontendNotice" role="status" hidden>
+              <i data-lucide="info"></i>
+              <div>
+                <strong>Frontend is ready.</strong>
+                <span>Appointment submission will become active after the backend API is connected.</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-help">
+      <div class="shell help-card">
+        <div>
+          <span class="mini-icon"><i data-lucide="circle-help"></i></span>
+          <div>
+            <small>Need help with booking?</small>
+            <strong>You can contact the clinic before submitting your request.</strong>
+          </div>
+        </div>
+        <a class="btn btn-ghost" href="contact.html">Contact Clinic <i data-lucide="arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img src="assets/logo/utkrishti-ayurveda-logo.png" alt="Utkrishti Ayurveda logo" width="54" height="54">
+          <span class="brand-copy">
+            <strong>Utkrishti</strong>
+            <small>Ayurveda</small>
+          </span>
+        </a>
+        <p>Personalised Ayurvedic consultation and thoughtful wellness care in Noida Extension, Greater Noida West.</p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="specialities.html">Specialities</a>
+        <a href="blog/index.html">Blog</a>
+      </div>
+
+      <div>
+        <h3>Appointments</h3>
+        <a href="book-appointment.html">Book Appointment</a>
+        <a href="appointment-status.html">Track Appointment</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h3>Location</h3>
+        <p>Noida Extension<br>Greater Noida West<br>Uttar Pradesh, India</p>
+      </div>
+    </div>
+
+    <div class="shell footer-bottom">
+      <span>© <span id="currentYear"></span> Utkrishti Ayurveda. All rights reserved.</span>
+      <span class="medical-note">Website information is for general wellness education and does not replace professional medical advice.</span>
+    </div>
+  </footer>
+</body>
+</html>
