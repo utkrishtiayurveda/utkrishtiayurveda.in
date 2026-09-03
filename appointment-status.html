@@ -1,1 +1,230 @@
-<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Appointment status | Utkrishti Ayurveda</title><style>body{font-family:system-ui;margin:0;display:grid;place-items:center;min-height:100vh;background:#f8f5ec;color:#173e2c}.box{max-width:620px;padding:40px;text-align:center}a{color:#173e2c;font-weight:700}</style></head><body><div class="box"><h1>Appointment status</h1><p>This page is reserved for the next development phase.</p><a href="index.html">← Back to Home</a></div></body></html>
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173e2c">
+  <meta name="robots" content="noindex,follow">
+
+  <title>Track Your Appointment | Utkrishti Ayurveda</title>
+  <meta name="description" content="Track your Utkrishti Ayurveda appointment using your appointment number and registered mobile number.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/appointment-status.css">
+
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/appointment-status.js" defer></script>
+</head>
+<body class="tracking-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-pill shell" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Utkrishti Ayurveda home">
+        <img src="assets/logo/utkrishti-ayurveda-logo.png" alt="Utkrishti Ayurveda logo" width="54" height="54">
+        <span class="brand-copy"><strong>Utkrishti</strong><small>Ayurveda</small></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="specialities.html">Specialities</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="track-link active-track" href="appointment-status.html" aria-current="page">
+          <i data-lucide="search-check"></i><span>Track</span>
+        </a>
+        <a class="btn btn-primary nav-cta" href="book-appointment.html">
+          <i data-lucide="calendar-days"></i><span>Book Appointment</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu shell" id="mobileMenu" hidden>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="specialities.html">Specialities</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="appointment-status.html" aria-current="page">Track Appointment</a>
+      <a class="btn btn-primary" href="book-appointment.html">Book Appointment</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="tracking-hero">
+      <div class="track-orb track-orb-one" aria-hidden="true"></div>
+      <div class="track-orb track-orb-two" aria-hidden="true"></div>
+      <div class="shell tracking-heading">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Appointment Tracking</div>
+        <h1>Know exactly where your <span>appointment stands.</span></h1>
+        <p>Enter your appointment number and registered mobile number to securely view the latest confirmation, schedule and payment status.</p>
+        <div class="tracking-trust-row">
+          <span><i data-lucide="shield-check"></i>Secure lookup</span>
+          <span><i data-lucide="refresh-cw"></i>Latest clinic status</span>
+          <span><i data-lucide="lock-keyhole"></i>Appointment ID + mobile required</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tracking-main-section">
+      <div class="shell tracking-layout">
+        <aside class="tracking-aside">
+          <div class="track-aside-primary">
+            <span class="track-aside-icon"><i data-lucide="scan-search"></i></span>
+            <div class="eyebrow light">Quick & private</div>
+            <h2>Your clinic update, without calling.</h2>
+            <p>Once the clinic confirms your request, the approved date and time will appear here automatically.</p>
+
+            <div class="track-care-points">
+              <div><span><i data-lucide="hash"></i></span><p><strong>Appointment number</strong><small>Use the ID received after booking.</small></p></div>
+              <div><span><i data-lucide="smartphone"></i></span><p><strong>Registered mobile</strong><small>Enter the same number used while booking.</small></p></div>
+              <div><span><i data-lucide="calendar-check-2"></i></span><p><strong>Live confirmation</strong><small>See confirmed schedule as soon as the clinic updates it.</small></p></div>
+            </div>
+          </div>
+
+          <a class="track-book-card" href="book-appointment.html">
+            <span class="track-mini-icon"><i data-lucide="calendar-plus-2"></i></span>
+            <span><small>Need a new consultation?</small><strong>Book an appointment</strong></span>
+            <i data-lucide="arrow-up-right"></i>
+          </a>
+        </aside>
+
+        <div class="tracking-workspace">
+          <section class="lookup-card" aria-labelledby="lookupTitle">
+            <div class="lookup-head">
+              <span class="lookup-kicker">Secure appointment lookup</span>
+              <h2 id="lookupTitle">Track your appointment</h2>
+              <p>Both details must match the information used while booking.</p>
+            </div>
+
+            <form id="trackingForm" class="tracking-form" novalidate>
+              <div class="tracking-fields">
+                <div class="track-field">
+                  <label for="appointmentNo">Appointment Number <span aria-hidden="true">*</span></label>
+                  <div class="track-input-wrap">
+                    <i data-lucide="badge-check"></i>
+                    <input id="appointmentNo" name="appointment_no" type="text" maxlength="40" autocomplete="off" spellcheck="false" placeholder="e.g. UA-260903-00001" required>
+                  </div>
+                  <small class="track-field-error" data-error-for="appointmentNo"></small>
+                </div>
+
+                <div class="track-field">
+                  <label for="mobile">Registered Mobile Number <span aria-hidden="true">*</span></label>
+                  <div class="track-input-wrap track-phone-wrap">
+                    <span class="track-country-code">+91</span>
+                    <input id="mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="10-digit mobile number" required>
+                  </div>
+                  <small class="track-field-error" data-error-for="mobile"></small>
+                </div>
+              </div>
+
+              <div class="lookup-actions">
+                <div class="lookup-privacy"><i data-lucide="lock-keyhole"></i><span><strong>Private lookup</strong><small>Your mobile number is used only to verify this appointment.</small></span></div>
+                <button class="btn btn-primary track-submit" id="trackSubmit" type="submit">
+                  <span>Track Appointment</span><i data-lucide="arrow-right"></i>
+                </button>
+              </div>
+            </form>
+
+            <div class="track-message" id="trackMessage" role="status" aria-live="polite" hidden></div>
+          </section>
+
+          <section class="appointment-result" id="appointmentResult" aria-live="polite" hidden>
+            <div class="result-status-hero" id="resultStatusHero">
+              <div class="status-symbol" id="statusSymbol"><i data-lucide="clock-3"></i></div>
+              <div class="status-main-copy">
+                <span class="status-overline" id="statusOverline">Current Status</span>
+                <h2 id="statusTitle">Appointment Requested</h2>
+                <p id="statusDescription">Your request has been received and is awaiting confirmation from the clinic.</p>
+              </div>
+              <span class="status-pill" id="statusPill">Requested</span>
+            </div>
+
+            <div class="confirmed-schedule" id="confirmedSchedule" hidden>
+              <div class="confirmed-icon"><i data-lucide="calendar-check-2"></i></div>
+              <div>
+                <span>Confirmed Consultation</span>
+                <strong id="confirmedDateTime">—</strong>
+                <small id="confirmedModeText">Please arrive on time.</small>
+              </div>
+            </div>
+
+            <div class="result-reference-row">
+              <div>
+                <small>Patient</small>
+                <strong id="resultPatient">—</strong>
+              </div>
+              <div class="appointment-reference">
+                <small>Appointment ID</small>
+                <strong id="resultAppointmentNo">—</strong>
+                <button type="button" id="copyAppointmentNo" class="copy-id-button" aria-label="Copy appointment number"><i data-lucide="copy"></i><span>Copy</span></button>
+              </div>
+            </div>
+
+            <div class="result-grid">
+              <article class="result-detail-card detail-consultation">
+                <span class="detail-icon"><i data-lucide="stethoscope"></i></span>
+                <div><small>Consultation</small><strong id="resultConsultation">—</strong><span id="resultMode">—</span></div>
+              </article>
+
+              <article class="result-detail-card">
+                <span class="detail-icon"><i data-lucide="calendar-days"></i></span>
+                <div><small>Preferred Date</small><strong id="resultPreferredDate">—</strong><span id="preferredDateNote">Requested by you</span></div>
+              </article>
+
+              <article class="result-detail-card payment-card">
+                <span class="detail-icon"><i data-lucide="badge-indian-rupee"></i></span>
+                <div><small>Payment</small><strong id="resultPaymentStatus">—</strong><span id="resultPaymentSummary">—</span></div>
+              </article>
+            </div>
+
+            <div class="appointment-progress" id="appointmentProgress">
+              <div class="progress-head"><div><small>Appointment journey</small><strong>What happens next</strong></div><span id="progressStatusText">1 of 3</span></div>
+              <div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div>
+              <div class="progress-steps">
+                <div class="progress-step" data-step="requested"><span><i data-lucide="check"></i></span><div><strong>Requested</strong><small>Payment received</small></div></div>
+                <div class="progress-step" data-step="confirmed"><span><i data-lucide="calendar-check"></i></span><div><strong>Confirmed</strong><small>Date & time assigned</small></div></div>
+                <div class="progress-step" data-step="completed"><span><i data-lucide="heart-pulse"></i></span><div><strong>Completed</strong><small>Consultation completed</small></div></div>
+              </div>
+            </div>
+
+            <div class="result-footer-actions">
+              <div class="result-help"><i data-lucide="circle-help"></i><span><strong>Need help?</strong><small>Contact the clinic if your appointment needs urgent attention.</small></span></div>
+              <a class="btn btn-ghost" href="contact.html">Contact Clinic <i data-lucide="arrow-right"></i></a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img src="assets/logo/utkrishti-ayurveda-logo.png" alt="Utkrishti Ayurveda logo" width="54" height="54">
+          <span class="brand-copy"><strong>Utkrishti</strong><small>Ayurveda</small></span>
+        </a>
+        <p>Personalised Ayurvedic consultation and thoughtful wellness care in Noida Extension, Greater Noida West.</p>
+      </div>
+      <div><h3>Explore</h3><a href="about.html">About</a><a href="services.html">Services</a><a href="specialities.html">Specialities</a><a href="blog/index.html">Blog</a></div>
+      <div><h3>Appointments</h3><a href="book-appointment.html">Book Appointment</a><a href="appointment-status.html">Track Appointment</a><a href="contact.html">Contact</a></div>
+      <div><h3>Location</h3><p>Noida Extension<br>Greater Noida West<br>Uttar Pradesh, India</p></div>
+    </div>
+    <div class="shell footer-bottom"><span>© <span id="currentYear"></span> Utkrishti Ayurveda. All rights reserved.</span><span class="medical-note">Website information is for general wellness education and does not replace professional medical advice.</span></div>
+  </footer>
+</body>
+</html>
