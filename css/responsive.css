@@ -1,0 +1,26 @@
+@media (max-width:1100px){
+  .desktop-nav{display:none}.menu-toggle{display:grid}.track-link span{display:none}
+  .hero-grid{gap:40px}.speciality-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1.3fr repeat(3,1fr);gap:28px}
+}
+@media (max-width:900px){
+  .section-pad{padding:76px 0}
+  .hero{padding-top:145px;min-height:auto}.hero-grid{grid-template-columns:1fr}.hero-copy{text-align:center}.hero-lead{margin-inline:auto}.hero-actions,.trust-row{justify-content:center}.hero-visual{max-width:620px;width:100%;margin-inline:auto}.visual-card{height:480px}
+  .quick-strip{margin-top:34px}.quick-grid{grid-template-columns:1fr}.quick-grid>a:not(:last-child){border-right:0;border-bottom:1px solid var(--line)}
+  .intro-grid,.why-grid,.faq-grid{grid-template-columns:1fr;gap:44px}.faq-copy{position:static}.journey-grid{grid-template-columns:repeat(2,1fr);gap:40px 16px}.journey-grid::before{display:none}.local-card{grid-template-columns:1fr;padding:38px}.map-art{height:250px}
+  .blog-grid{grid-template-columns:1fr 1fr}.blog-card:last-child{grid-column:1/-1}.footer-grid{grid-template-columns:1.4fr 1fr 1fr}.footer-grid>div:last-child{grid-column:1/-1}
+}
+@media (max-width:680px){
+  .shell{width:min(calc(100% - 26px),var(--shell))}.section-pad{padding:64px 0}.site-header{top:10px}.nav-pill{height:66px;padding:8px 8px 8px 10px}.site-header.scrolled .nav-pill{height:62px}.brand img{width:44px;height:44px}.brand-copy strong{font-size:16px}.brand-copy small{font-size:8px}.nav-cta{width:44px;height:44px;padding:0}.nav-cta span{display:none}.track-link{display:none}
+  .hero{padding-top:115px}.hero-grid{gap:34px}h1{font-size:clamp(41px,13vw,58px)}h2{font-size:clamp(32px,10vw,42px)}.hero-lead{font-size:16px}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.hero-actions .btn{padding-inline:12px;font-size:13px}.trust-row{gap:14px}.trust-row>div{padding-right:0}.trust-row>div::after{display:none}.trust-row strong{font-size:12px}.trust-row small{font-size:10px}
+  .visual-card{height:400px;border-radius:34px}.logo-medallion{width:230px;height:230px}.logo-medallion img{width:190px}.quote-card{width:180px;left:14px;top:14px;padding:13px}.quote-card p{font-size:11px}.availability-card{right:14px;bottom:14px}.availability-card div{display:none}
+  .section-top{align-items:flex-start;flex-direction:column}.speciality-grid{grid-template-columns:1fr}.speciality-card{min-height:auto}.journey-grid{grid-template-columns:1fr 1fr}.journey-step{padding:0 6px}.journey-step p{font-size:12px}
+  .local-card{padding:28px 20px;border-radius:26px}.map-art{height:220px}.ring-one{width:220px;height:220px}.ring-two{width:150px;height:150px}.map-pin{width:68px;height:68px}
+  .blog-grid{grid-template-columns:1fr}.blog-card:last-child{grid-column:auto}.cta-card{padding:34px 24px;align-items:flex-start;flex-direction:column}.cta-card .btn{width:100%}
+  .footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.footer-grid>div:last-child{grid-column:auto}.footer-bottom{flex-direction:column}.medical-note{text-align:left}
+}
+@media (max-width:420px){
+  .hero-actions{grid-template-columns:1fr}.journey-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-grid>div:last-child{grid-column:auto}
+  .visual-card{height:370px}.logo-medallion{width:205px;height:205px}.logo-medallion img{width:172px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.speciality-card,.blog-card,.why-card{transition:none}}
