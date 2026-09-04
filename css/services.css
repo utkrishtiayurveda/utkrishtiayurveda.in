@@ -1,0 +1,30 @@
+.services-hero{padding:175px 0 92px;background:radial-gradient(circle at 83% 14%,#e4ecd9,transparent 30%),linear-gradient(180deg,#fffdf8,#f5f6ef)}.services-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:68px;align-items:center}.services-copy h1{font-size:clamp(46px,5.7vw,70px)}.services-copy>p{font-size:18px;color:var(--muted);max-width:690px}.services-panel{border-radius:34px;padding:38px;background:linear-gradient(145deg,#214b36,#103121);color:white;box-shadow:var(--shadow-lg)}.panel-mark{width:66px;height:66px;border-radius:20px;display:grid;place-items:center;background:rgba(255,255,255,.08);color:var(--gold-soft);margin-bottom:28px}.panel-mark svg{width:30px;height:30px}.services-panel>small{font-size:11px;letter-spacing:.15em;color:#bcd0c2;font-weight:800}.services-panel h2{color:white;font-size:36px;margin:10px 0}.services-panel>p{color:#c8d7ce}.panel-contact{margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:grid;gap:10px}.panel-contact a{display:flex;align-items:center;gap:10px;font-size:14px;color:#edf4ef;overflow-wrap:anywhere}.service-section{background:#fff}.general-section{background:#f5f6ef}.service-heading{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:34px}.service-heading h2{margin-bottom:0}.service-heading>p{max-width:520px;color:var(--muted);margin:0}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.service-card{padding:25px;border:1px solid var(--line);border-radius:22px;background:#fff;min-height:205px;display:flex;flex-direction:column;transition:.22s}.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.service-icon{width:48px;height:48px;border-radius:15px;background:#edf3e9;color:var(--forest);display:grid;place-items:center;margin-bottom:20px}.service-icon svg{width:22px;height:22px}.service-card h3{font-size:22px;margin-bottom:9px}.service-card p{font-size:13px;color:var(--muted)}.service-link{margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:var(--forest)}.consult-label{margin-top:auto;font-size:11px;font-weight:800;color:#7b887f;text-transform:uppercase;letter-spacing:.06em}.service-process{background:#fffdf8}.process-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}.process-grid>div>p{color:var(--muted);font-size:17px}.process-steps{display:grid;gap:12px}.process-steps>div{display:flex;align-items:center;gap:18px;padding:20px;border:1px solid var(--line);border-radius:20px;background:white}.process-steps b{font-family:var(--font-display);color:var(--gold);font-size:18px}.process-steps strong,.process-steps small{display:block}.process-steps strong{color:var(--forest)}.process-steps small{color:var(--muted);margin-top:2px}.services-cta{padding:0 0 82px;background:#fffdf8}.services-cta-card{padding:42px 46px;border-radius:30px;background:var(--forest);display:flex;align-items:center;justify-content:space-between;gap:30px}.services-cta-card h2{color:white;margin-bottom:8px}.services-cta-card p{color:#cbd9d0;margin:0}.service-disclaimer{padding:0 0 60px}.service-disclaimer p{padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:#758178}@media(max-width:900px){.services-hero-grid,.process-grid{grid-template-columns:1fr}.service-grid{grid-template-columns:repeat(2,1fr)}.services-panel{max-width:620px}.service-heading{display:block}.service-heading>p{margin-top:14px}.process-grid{gap:36px}}@media(max-width:620px){.services-hero{padding:140px 0 65px}.services-copy>p{font-size:16px}.services-copy .hero-actions{display:grid}.services-copy .btn{width:100%}.services-panel{padding:28px 22px;border-radius:26px}.services-panel h2{font-size:29px}.service-grid{grid-template-columns:1fr}.service-card{min-height:175px}.services-cta-card{padding:30px 22px;flex-direction:column;align-items:stretch}.services-cta-card .btn{width:100%}.panel-contact a{font-size:13px}}
+
+/* Final CTA polish */
+.services-cta-card .btn{
+  flex:0 0 auto;
+  width:auto;
+  min-width:0;
+  max-width:max-content;
+  padding:13px 20px;
+  min-height:48px;
+  font-size:14px;
+  line-height:1.2;
+  border-radius:999px;
+  white-space:nowrap;
+  box-shadow:0 10px 24px rgba(183,137,67,.20);
+}
+.services-cta-card .btn svg{
+  width:16px;
+  height:16px;
+  flex:0 0 auto;
+}
+@media(max-width:620px){
+  .services-cta-card .btn{
+    width:100%;
+    max-width:none;
+    min-height:52px;
+    padding:14px 18px;
+    white-space:normal;
+  }
+}
