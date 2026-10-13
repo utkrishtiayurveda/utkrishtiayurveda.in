@@ -9,3 +9,7 @@
 .about-page .site-footer .footer-brand,
 .about-page .site-footer .footer-grid,
 .about-page .site-footer 
+
+/* Doctor portrait */
+.portrait-placeholder.doctor-portrait{display:block;padding:0;overflow:hidden;background:linear-gradient(160deg,#eef3e8,#dbe6d5);}
+.doctor-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit;}
