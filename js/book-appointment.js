@@ -12,6 +12,8 @@
   const modeCards = [...document.querySelectorAll(".mode-card")];
   const feeNote = type.closest(".field")?.querySelector(".field-note span");
   let types = [], pending = null, razorpayPromise = null;
+  let dayOk = true, slotsOn = false, slotTime = "", availSeq = 0;
+  const avail = $("availability"), slotPicker = $("slotPicker"), slotGrid = $("slotGrid");
 
   const now = new Date();
   const today = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().split("T")[0];
@@ -74,6 +76,13 @@
       });
       type.disabled = !types.length;
 
+      if (data.booking) {
+        slotsOn = !!data.booking.slots_enabled;
+        const adv = Number(data.booking.advance_days || 0);
+        if (adv > 0) { const max = new Date(now.getTime() - now.getTimezoneOffset() * 60000 + adv * 86400000); date.max = max.toISOString().split("T")[0]; }
+      }
+      if (date.value) checkDate();
+
       if (data.timing?.start && data.timing?.end) {
         const timing = `${formatTime(data.timing.start)} – ${formatTime(data.timing.end)}`;
         const side = document.querySelector(".timing-card strong");
@@ -97,6 +106,57 @@
     modeCards.forEach((x) => x.classList.remove("is-selected")); card.classList.add("is-selected"); clearError("consultation_mode"); pending = null; updateFee();
   }));
   type.addEventListener("change", () => { clearError("consultationType"); pending = null; updateFee(); });
+
+  const fmtDate = (v) => new Date(`${v}T00:00:00`).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", weekday: "short" });
+
+  function showAvail(text, state, nextDate) {
+    avail.dataset.state = state; avail.replaceChildren();
+    const span = document.createElement("span"); span.textContent = text; avail.appendChild(span);
+    if (nextDate) {
+      const b = document.createElement("button"); b.type = "button"; b.textContent = `Use ${fmtDate(nextDate)}`;
+      b.addEventListener("click", () => { date.value = nextDate; date.dispatchEvent(new Event("change")); });
+      avail.appendChild(b);
+    }
+    avail.hidden = false;
+  }
+
+  function renderSlots(slots) {
+    slotGrid.replaceChildren();
+    slots.forEach((s) => {
+      const label = document.createElement("label"); label.className = "slot";
+      const input = document.createElement("input"); input.type = "radio"; input.name = "preferred_time"; input.value = s.time; input.disabled = !s.available;
+      input.addEventListener("change", () => { slotTime = s.time; pending = null; clearError("preferredTime"); });
+      const span = document.createElement("span"); span.textContent = formatTime(s.time);
+      label.append(input, span); slotGrid.appendChild(label);
+    });
+    slotPicker.hidden = false;
+  }
+
+  async function checkDate() {
+    const seq = ++availSeq; slotTime = ""; slotPicker.hidden = true; slotGrid.replaceChildren();
+    if (!date.value) { avail.hidden = true; dayOk = true; return; }
+    if (date.value < today) { dayOk = false; showAvail("This date has already passed.", "bad"); return; }
+    showAvail("Checking availability…", "loading"); dayOk = true;
+    try {
+      const r = await fetch(`${API}/availability.php?date=${encodeURIComponent(date.value)}`, { cache: "no-store", headers: { Accept: "application/json" } });
+      const data = await r.json().catch(() => ({}));
+      if (seq !== availSeq) return;
+      if (!r.ok || !data.success) throw new Error("unavailable");
+      const day = data.day;
+      if (day.state !== "open") {
+        dayOk = false;
+        showAvail(day.message || "This date is not available.", "bad", data.next_available);
+        return;
+      }
+      if (day.slots_enabled) { renderSlots(day.slots || []); showAvail("Pick a time slot below. Greyed-out slots are already booked.", "ok"); }
+      else if (day.remaining !== null && day.remaining <= 3) showAvail(`Only ${day.remaining} seat${day.remaining === 1 ? "" : "s"} left on this date.`, "ok");
+      else avail.hidden = true;
+    } catch (_) {
+      if (seq !== availSeq) return;
+      avail.hidden = true; dayOk = true; // never block a patient because the check itself failed; the server re-validates
+    }
+  }
+  date.addEventListener("change", () => { pending = null; clearError("preferredDate"); checkDate(); });
   phone.addEventListener("input", () => { phone.value = phone.value.replace(/\D/g, "").slice(0, 10); pending = null; });
   concern.addEventListener("input", () => { count.textContent = String(concern.value.length); pending = null; });
   form.addEventListener("input", () => { if (notice) notice.hidden = true; });
@@ -118,6 +178,8 @@
     if (concern.value.trim().length < 5) { setError("mainConcern", "Please briefly describe the main concern."); ok = false; }
     if (!date.value) { setError("preferredDate", "Please choose a preferred date."); ok = false; }
     else if (date.value < today) { setError("preferredDate", "Preferred date cannot be in the past."); ok = false; }
+    else if (!dayOk) { setError("preferredDate", "Please choose a date that is available."); ok = false; }
+    else if (!slotPicker.hidden && !slotTime) { setError("preferredTime", "Please choose a time slot."); ok = false; }
     if (!consent.checked) { setError("consent", "Please confirm before submitting."); ok = false; }
     return ok;
   }
@@ -125,13 +187,19 @@
   const payload = () => ({
     full_name: $("fullName").value.trim(), phone: phone.value, email: $("email").value.trim(),
     age: Number($("age").value), gender: $("gender").value, consultation_mode: selectedMode(),
-    consultation_type_id: Number(type.value), main_concern: concern.value.trim(), preferred_date: date.value
+    consultation_type_id: Number(type.value), main_concern: concern.value.trim(), preferred_date: date.value,
+    preferred_time: slotPicker.hidden ? "" : slotTime, consent: $("consent").checked, website: $("website")?.value || ""
   });
+
+  const newKey = () => (window.crypto?.randomUUID ? crypto.randomUUID().replace(/-/g, "") : Array.from({ length: 32 }, () => Math.floor(Math.random() * 16).toString(16)).join(""));
 
   async function post(path, body) {
     const r = await fetch(`${API}/${path}`, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) });
     const data = await r.json().catch(() => ({}));
-    if (!r.ok || !data.success) throw new Error(Array.isArray(data.errors) ? data.errors.join(" ") : data.message || "Request could not be completed.");
+    if (!r.ok || !data.success) {
+      const err = new Error(Array.isArray(data.errors) ? data.errors.join(" ") : data.message || "Request could not be completed.");
+      err.status = r.status; throw err;
+    }
     return data;
   }
 
@@ -148,7 +216,10 @@
   async function getOrder(data) {
     const key = JSON.stringify(data);
     if (pending?.key === key && pending.data?.order_id) return pending.data;
-    const order = await post("create-order.php", data); pending = { key, data: order }; return order;
+    // One idempotency key per distinct booking: a retry of the same details can never create a second order.
+    const idem = pending?.key === key ? pending.idem : newKey();
+    pending = { key, idem, data: null };
+    const order = await post("create-order.php", { ...data, idempotency_key: idem }); pending.data = order; return order;
   }
 
   function checkout(order) {
@@ -176,6 +247,11 @@
     try {
       const data = payload();
       const [order] = await Promise.all([getOrder(data), loadRazorpay()]);
+      if (order.already_paid) {
+        pending = null;
+        message("Already booked", `This appointment is already paid. Your appointment number is ${order.appointment_no}. You can track it any time.`, "success");
+        return;
+      }
       const balance = Number(order.clinic_balance_paise || 0) > 0 ? ` Remaining ${money(order.clinic_balance_paise)} is payable at the clinic.` : "";
       message("Secure payment ready", `Pay ${money(order.amount_paise)} online to submit appointment ${order.appointment_no}.${balance}`);
       busy(false);
@@ -185,10 +261,12 @@
         razorpay_order_id: pay.razorpay_order_id, razorpay_payment_id: pay.razorpay_payment_id, razorpay_signature: pay.razorpay_signature
       });
       pending = null; form.reset(); modeCards.forEach((x) => x.classList.remove("is-selected")); count.textContent = "0"; updateFee();
+      avail.hidden = true; slotPicker.hidden = true; slotTime = ""; dayOk = true;
       message("Appointment request submitted", `Payment verified successfully. Your appointment number is ${verified.appointment_no}. Please save this number for tracking.`, "success");
       notice?.scrollIntoView({ behavior: "smooth", block: "center" });
     } catch (err) {
       message("Booking not completed", err.message || "Something went wrong. Please try again.", "error");
+      if (err.status === 409) { pending = null; checkDate(); } // slot or date was just taken: refresh what is still free
       notice?.scrollIntoView({ behavior: "smooth", block: "nearest" });
     } finally { busy(false); }
   });

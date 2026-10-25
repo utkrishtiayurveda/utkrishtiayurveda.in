@@ -15,11 +15,11 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/book-appointment.css">
+  <link rel="stylesheet" href="css/book-appointment.css?v=2">
 
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <script src="js/main.js" defer></script>
-  <script src="js/book-appointment.js" defer></script>
+  <script src="js/book-appointment.js?v=2" defer></script>
 </head>
 
 <body class="booking-page">
@@ -255,8 +255,19 @@
                   <i data-lucide="clock-3"></i>
                   <span>Consultation hours: 08:45 AM – 10:45 AM. Final timing will be confirmed by the clinic.</span>
                 </div>
+                <div class="availability" id="availability" role="status" aria-live="polite" hidden></div>
                 <small class="field-error" data-error-for="preferredDate"></small>
               </div>
+
+              <div class="field field-full slot-picker" id="slotPicker" hidden>
+                <span class="slot-label" id="slotLabel">Choose a time slot <span aria-hidden="true">*</span></span>
+                <div class="slot-grid" id="slotGrid" role="radiogroup" aria-labelledby="slotLabel"></div>
+                <small class="field-error" data-error-for="preferredTime"></small>
+              </div>
+            </div>
+
+            <div class="hp-field" aria-hidden="true">
+              <label>Leave this field empty<input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label>
             </div>
 
             <label class="consent-row">
